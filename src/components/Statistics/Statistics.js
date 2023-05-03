@@ -1,56 +1,33 @@
 import { Component } from 'react';
-// import Feedback from './Feedback';
+import FeedbackOptions from './FeedbackOptions';
 // import StatisticsControl from './StatisticsControl';
 import './Statistics.css';
 
 class Statistics extends Component {
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+    good: this.props.good,
+    neutral: this.props.neutral,
+    bad: this.props.bad,
   };
-  handlClickGood = () => {
+  handlClick = e => {
+    const { name } = e.target;
     this.setState(prevState => {
-      console.log(prevState);
       return {
-        good: prevState.good + 1,
+        [name]: prevState[name] + 1,
       };
     });
   };
-  handlClickNeutral = () => {
-    this.setState(prevState => {
-      console.log(prevState);
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-  handlClickBad = () => {
-    this.setState(prevState => {
-      console.log(prevState);
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
-  };
+
   render() {
+    const { good, bad, neutral } = this.state;
+    const Total = good + bad + neutral;
+    const Percentage = Math.round((good / Total) * 100);
+    console.log(Percentage);
+
     return (
       <div>
-        <div className="Stat__feedback">
-          <h1 className="Stat__title">Please leave feedback</h1>
+        <FeedbackOptions onhandlClick={this.handlClick} />
 
-          <button type="button" onClick={this.handlClickGood}>
-            Good
-          </button>
-
-          <button type="button" onClick={this.handlClickNeutral}>
-            Neutral
-          </button>
-
-          <button type="button" onClick={this.handlClickBad}>
-            Bad
-          </button>
-        </div>
         <div className="Statistic__wrap">
           <h2 className="Statistic__title">Statistics</h2>
 
@@ -66,6 +43,16 @@ class Statistics extends Component {
 
             <p className="Statistic__text">
               Bad: <span className="Statistic__count">{this.state.bad}</span>
+            </p>
+            <p className="Statistic__text">
+              Total: <span className="Statistic__count">{Total}</span>
+            </p>
+
+            <p className="Statistic__text">
+              Positive Feedback:{' '}
+              <span className="Statistic__count">
+                {!Percentage ? 0 : Percentage}%
+              </span>
             </p>
           </div>
         </div>
