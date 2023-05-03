@@ -36,8 +36,8 @@
   margin-bottom: 8px;
 }
 .Grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   grid-gap: 8px;
 }
 .Statistic__text {
