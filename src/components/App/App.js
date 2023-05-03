@@ -3,7 +3,6 @@ import Section from 'components/Section';
 
 // import FeedbackOptions from 'components/Statistics/FeedbackOptions';
 import './App.css';
-import { Component } from 'react';
 
 export default function App() {
   return (
