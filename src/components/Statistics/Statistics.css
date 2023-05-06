@@ -27,15 +27,13 @@
   box-shadow: 2px 5px 2px 0 rgb(0 0 0/0.5);
 }
 
-.Statistic__wrap {
-  width: 400px;
-  padding: 10px;
-  text-align: start;
-}
 .Statistic__title {
   margin-bottom: 8px;
 }
-.Grid {
+.Flex {
+  width: 400px;
+  padding: 10px;
+  text-align: start;
   display: flex;
   flex-direction: column;
   grid-gap: 8px;

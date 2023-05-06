@@ -1,7 +1,7 @@
 import React from 'react';
 
-const FeedbackOptions = ({ onhandlClick }) => (
-  <div className="Stat__feedback" onClick={onhandlClick}>
+const FeedbackOptions = ({ onLeaveFeedback }) => (
+  <div className="Stat__feedback" onClick={onLeaveFeedback}>
     <button type="button" name="good">
       Good
     </button>
