@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Statistics.css';
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) => {
   return (
     <div className="Flex">
       <p className="Statistic__text">
@@ -40,4 +46,3 @@ Statistics.propTypes = {
   total: PropTypes.func,
   positivePercentage: PropTypes.func,
 };
-export default Statistics;
