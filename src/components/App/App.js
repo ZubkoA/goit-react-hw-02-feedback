@@ -1,10 +1,8 @@
 import { Component } from 'react';
 import Statistics from '../Statistics/Statistics';
-import Section from 'components/Section/Section';
-import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
+import Section from '../Section';
+import FeedbackOptions from '../FeedbackOptions';
 import Notification from 'components/Statistics/Notification';
-
-// import FeedbackOptions from 'components/Statistics/FeedbackOptions';
 import './App.css';
 
 export default class App extends Component {
@@ -12,14 +10,15 @@ export default class App extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    // isShowStatistics: false,
+  };
+  options = () => {
+    return Object.keys(this.state);
   };
   handlClick = e => {
     const { name } = e.target;
     this.setState(prevState => {
       return {
         [name]: prevState[name] + 1,
-        // isShowStatistics: true,
       };
     });
   };
@@ -35,10 +34,14 @@ export default class App extends Component {
   render() {
     const { good, bad, neutral } = this.state;
     const Total = this.countTotalFeedback();
+    const Options = this.options();
     return (
       <div className="Container">
         <Section title="Please leave feedback">
-          <FeedbackOptions onLeaveFeedback={this.handlClick} />
+          <FeedbackOptions
+            onLeaveFeedback={this.handlClick}
+            options={Options}
+          />
         </Section>
         <Section title="Statistics">
           {Total > 0 ? (
