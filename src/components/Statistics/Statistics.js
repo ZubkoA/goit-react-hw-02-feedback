@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Statistics.css';
+import css from './Statistics.module.css';
 
 export const Statistics = ({
   good,
@@ -10,26 +10,28 @@ export const Statistics = ({
   positivePercentage,
 }) => {
   return (
-    <div className="Flex">
-      <p className="Statistic__text">
-        Good: <span className="Statistic__count">{good}</span>
+    <div className={css.Flex}>
+      <p className={css.Statistic__text}>
+        Good: <span className={css.Statistic__count}>{good}</span>
       </p>
 
-      <p className="Statistic__text">
-        Neutral: <span className="Statistic__count">{neutral}</span>
+      <p className={css.Statistic__text}>
+        Neutral: <span className={css.Statistic__count}>{neutral}</span>
       </p>
 
-      <p className="Statistic__text">
-        Bad: <span className="Statistic__count">{bad}</span>
+      <p className={css.Statistic__text}>
+        Bad: <span className={css.Statistic__count}>{bad}</span>
       </p>
-      <p className="Statistic__text">
+      <p className={css.Statistic__text}>
         Total:{' '}
-        <span className="Statistic__count">{total(good, neutral, bad)}</span>
+        <span className={css.Statistic__count}>
+          {total(good, neutral, bad)}
+        </span>
       </p>
 
-      <p className="Statistic__text">
+      <p className={css.Statistic__text}>
         Positive Feedback:{' '}
-        <span className="Statistic__count">
+        <span className={css.Statistic__count}>
           {!positivePercentage(good, neutral, bad)
             ? 0
             : positivePercentage(good, neutral, bad)}

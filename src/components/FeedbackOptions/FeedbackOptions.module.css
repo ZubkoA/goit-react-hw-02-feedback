@@ -3,9 +3,6 @@
   text-align: start;
 }
 
-.Stat__title {
-  margin-bottom: 16px;
-}
 .Stat__feedback > button {
   border: none;
   padding: 10px 15px;
@@ -25,28 +22,4 @@
 
 .Stat__feedback > button:active {
   box-shadow: 2px 5px 2px 0 rgb(0 0 0/0.5);
-}
-
-.Statistic__title {
-  margin-bottom: 8px;
-}
-.Flex {
-  width: 400px;
-  padding: 10px;
-  text-align: start;
-  display: flex;
-  flex-direction: column;
-  grid-gap: 8px;
-}
-.Statistic__text {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-.Statistic__count {
-  padding: 0 8px;
-  background-color: rgb(129, 181, 140);
-  color: #fff;
-  border: 1px solid black;
-  border-radius: 4px;
 }

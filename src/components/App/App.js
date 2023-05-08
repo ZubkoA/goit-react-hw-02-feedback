@@ -2,7 +2,7 @@ import { Component } from 'react';
 import Section from '../Section';
 import FeedbackOptions from '../FeedbackOptions';
 import { Notification, Statistics } from '../Statistics';
-import './App.css';
+import css from './App.module.css';
 
 export default class App extends Component {
   state = {
@@ -34,7 +34,7 @@ export default class App extends Component {
     const options = Object.keys(this.state);
 
     return (
-      <div className="Container">
+      <div className={css.Container}>
         <Section title="Please leave feedback">
           <FeedbackOptions
             onLeaveFeedback={this.handlClick}
