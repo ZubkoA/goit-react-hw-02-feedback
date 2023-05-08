@@ -10,9 +10,7 @@ export default class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  options = () => {
-    return Object.keys(this.state);
-  };
+
   handlClick = e => {
     const { name } = e.target;
     this.setState(prevState => {
@@ -32,18 +30,19 @@ export default class App extends Component {
 
   render() {
     const { good, bad, neutral } = this.state;
-    const Total = this.countTotalFeedback();
-    const Options = this.options();
+    const total = this.countTotalFeedback();
+    const options = Object.keys(this.state);
+
     return (
       <div className="Container">
         <Section title="Please leave feedback">
           <FeedbackOptions
             onLeaveFeedback={this.handlClick}
-            options={Options}
+            options={options}
           />
         </Section>
         <Section title="Statistics">
-          {Total > 0 ? (
+          {total > 0 ? (
             <Statistics
               good={good}
               neutral={neutral}
